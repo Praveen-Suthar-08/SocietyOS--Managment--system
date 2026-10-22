@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
+@import "tailwindcss";
+
+:root {
+  --canvas: #F6F6F1;
+  --surface: #FFFFFF;
+  --surface-subtle: #E4ECE5;
+  --surface-muted: #EFF3EF;
+
+  --ink: #17231D;
+  --ink-muted: #66716A;
+  --ink-subtle: #8A968E;
+
+  --brand: #276749;
+  --brand-hover: #1F523A;
+  --brand-subtle: #EAF3ED;
+
+  --border-neutral: #D9DED8;
+  --border-subtle: #E8ECE7;
+
+  --notice: #B86A2B;
+  --notice-subtle: #FDF6EE;
+
+  --emergency: #B42318;
+  --emergency-subtle: #FEF3F2;
+
+  --background: #F6F6F1;
+  --foreground: #17231D;
+}
+
+[data-theme="dark"], .dark {
+  --canvas: #0F1512;
+  --surface: #18221D;
+  --surface-subtle: #223029;
+  --surface-muted: #1D2A23;
+
+  --ink: #ECF2EE;
+  --ink-muted: #9AB0A2;
+  --ink-subtle: #768B7E;
+
+  --brand: #34845E;
+  --brand-hover: #409E71;
+  --brand-subtle: #1C3328;
+
+  --border-neutral: #2A3C33;
+  --border-subtle: #202E27;
+
+  --notice: #E08A42;
+  --notice-subtle: #2E1F14;
+
+  --emergency: #E5483D;
+  --emergency-subtle: #301614;
+
+  --background: #0F1512;
+  --foreground: #ECF2EE;
+}
+
+@theme {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-surface-muted: var(--surface-muted);
+
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-subtle: var(--ink-subtle);
+
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-subtle: var(--brand-subtle);
+  --color-on-brand: #FFFFFF;
+
+  --color-border-neutral: var(--border-neutral);
+  --color-border-subtle: var(--border-subtle);
+  --color-ring-focus: var(--brand);
+
+  --color-notice: var(--notice);
+  --color-notice-subtle: var(--notice-subtle);
+
+  --color-emergency: var(--emergency);
+  --color-emergency-subtle: var(--emergency-subtle);
+
+  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Accessible visible focus indicator */
+:focus-visible {
+  outline: 2px solid #276749;
+  outline-offset: 2px;
+}
+
+/* Reduced motion honoring */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F6F6F1;
+}
+::-webkit-scrollbar-thumb {
+  background: #D9DED8;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #66716A;
+}
+
+/* High Contrast & Dark Mode Text Visibility Assurance */
+[data-theme="dark"],
+.dark {
+  color-scheme: dark;
+}
+
+[data-theme="dark"] .text-\[\#17231D\],
+.dark .text-\[\#17231D\],
+[data-theme="dark"] .text-slate-900,
+.dark .text-slate-900,
+[data-theme="dark"] .text-gray-900,
+.dark .text-gray-900 {
+  color: var(--ink) !important;
+}
+
+[data-theme="dark"] .text-\[\#66716A\],
+.dark .text-\[\#66716A\],
+[data-theme="dark"] .text-\[\#475467\],
+.dark .text-\[\#475467\],
+[data-theme="dark"] .text-slate-600,
+.dark .text-slate-600,
+[data-theme="dark"] .text-gray-600,
+.dark .text-gray-600 {
+  color: var(--ink-muted) !important;
+}
+
+[data-theme="dark"] .text-\[\#8A968E\],
+.dark .text-\[\#8A968E\],
+[data-theme="dark"] .text-slate-500,
+.dark .text-slate-500,
+[data-theme="dark"] .text-gray-500,
+.dark .text-gray-500 {
+  color: var(--ink-subtle) !important;
+}
+
+[data-theme="dark"] .border-\[\#D9DED8\],
+.dark .border-\[\#D9DED8\],
+[data-theme="dark"] .border-slate-200,
+.dark .border-slate-200,
+[data-theme="dark"] .border-gray-200,
+.dark .border-gray-200 {
+  border-color: var(--border-neutral) !important;
+}
+
+[data-theme="dark"] .bg-\[\#F6F6F1\],
+.dark .bg-\[\#F6F6F1\],
+[data-theme="dark"] .bg-slate-50,
+.dark .bg-slate-50,
+[data-theme="dark"] .bg-gray-50,
+.dark .bg-gray-50 {
+  background-color: var(--surface-muted) !important;
+}
+
+/* Print Media Optimization — Strictly print only target slip/document on single clean page */
+@page {
+  size: A4 portrait;
+  margin: 10mm 12mm;
+}
+
+@media print {
+  html,
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  /* Hide typical app navigation, headers, and modal overlays in print */
+  #app-shell-root > header,
+  #app-shell-root > aside,
+  #app-shell-root > nav,
+  header,
+  aside,
+  nav,
+  footer,
+  .no-print,
+  button:not(.allow-print),
+  [role="navigation"],
+  [data-radix-dialog-overlay],
+  [data-slot="dialog-overlay"] {
+    display: none !important;
+  }
+
+  /* Reset dialog / modal so it is static, un-clipped, and visible */
+  [role="dialog"] {
+    position: static !important;
+    left: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    -webkit-transform: none !important;
+    translate: none !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 650px !important;
+    max-height: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+  }
+
+  main {
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  table {
+    width: 100% !important;
+    box-shadow: none !important;
+    border-collapse: collapse !important;
+  }
+
+  th,
+  td {
+    border: 1px solid #CBD5E1 !important;
+    color: #0F172A !important;
+  }
+
+  .printable-slip {
+    display: block !important;
+    box-sizing: border-box !important;
+    border: 1.5px solid #0F172A !important;
+    border-radius: 6px !important;
+    box-shadow: none !important;
+    background: #FFFFFF !important;
+    color: #0F172A !important;
+    padding: 14px 18px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    max-width: 640px !important;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+    page-break-before: avoid !important;
+    break-before: avoid !important;
+  }
+
+  .printable-slip * {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+}
+
+/* ========================================================
+   OFFICIAL SOCIETY SLIP & VOUCHER PRINT & DISPLAY SYSTEM
+   ======================================================== */
+.slip-container {
+  max-width: 660px;
+  margin: 0 auto;
+  background: #ffffff !important;
+  color: #0f172a !important;
+  border-radius: 14px;
+  border: 2px solid #0f172a;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  padding: 22px 24px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.slip-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: flex-start !important;
+  gap: 16px !important;
+  padding-bottom: 14px !important;
+  border-bottom: 2px solid #0f172a !important;
+}
+
+.slip-ribbon-emerald {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 8px 14px !important;
+  background: #ecfdf5 !important;
+  border: 1.5px solid #10b981 !important;
+  border-radius: 8px !important;
+  margin-top: 12px !important;
+}
+
+.slip-ribbon-amber {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  padding: 8px 14px !important;
+  background: #fffbeb !important;
+  border: 1.5px solid #f59e0b !important;
+  border-radius: 8px !important;
+  margin-top: 12px !important;
+}
+
+.slip-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 12px !important;
+  margin-top: 12px !important;
+}
+
+.slip-card {
+  background: #f8fafc !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  padding: 10px 12px !important;
+}
+
+.slip-table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin-top: 12px !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.slip-table th {
+  background: #0f172a !important;
+  color: #ffffff !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 8px 12px !important;
+  border: 1px solid #334155 !important;
+  text-align: left !important;
+}
+
+.slip-table td {
+  padding: 8px 12px !important;
+  font-size: 11px !important;
+  border: 1px solid #e2e8f0 !important;
+  color: #1e293b !important;
+}
+
+.slip-table tr:nth-child(even) td {
+  background: #f8fafc !important;
+}
+
+.slip-table .total-row-emerald td {
+  background: #ecfdf5 !important;
+  color: #064e3b !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+}
+
+.slip-table .total-row-amber td {
+  background: #fffbeb !important;
+  color: #78350f !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+}
+
+.slip-callout-amber {
+  background: #fffbeb !important;
+  border: 1.5px solid #fcd34d !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+  margin-top: 12px !important;
+  color: #78350f !important;
+}
+
+.slip-callout-emerald {
+  background: #ecfdf5 !important;
+  border: 1.5px solid #6ee7b7 !important;
+  border-radius: 8px !important;
+  padding: 10px 14px !important;
+  margin-top: 12px !important;
+  color: #065f46 !important;
+}
+
+.slip-footer {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 16px !important;
+  margin-top: 14px !important;
+  padding-top: 12px !important;
+  border-top: 1px solid #cbd5e1 !important;
+}
+
+.slip-seal-amber {
+  border: 2px dashed #d97706 !important;
+  background: #fffbeb !important;
+  color: #92400e !important;
+  padding: 6px 14px !important;
+  border-radius: 8px !important;
+  text-align: center !important;
+}
+
+.slip-seal-emerald {
+  border: 2px dashed #059669 !important;
+  background: #ecfdf5 !important;
+  color: #065f46 !important;
+  padding: 6px 14px !important;
+  border-radius: 8px !important;
+  text-align: center !important;
+}
+

@@ -1,0 +1,60 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# Testing & Coverage
+/coverage
+/.nyc_output
+playwright-report/
+test-results/
+
+# Next.js & Turbopack
+/.next/
+/out/
+.turbo
+
+# Production & Build outputs
+/build
+/dist
+
+# Local Databases, Logs & Temporary Volumes
+.mongo_data/
+*.db
+*.sqlite
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# IDE & Editor Settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# MCP & Agent Workspaces
+.playwright-mcp/
+.gemini/
+
+# OS Specific
+.DS_Store
+Thumbs.db
+*.pem
+
+# Environment Secrets (Only .env.example should be tracked)
+.env*
+!.env.example
+
+# Vercel Deployment
+.vercel
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
